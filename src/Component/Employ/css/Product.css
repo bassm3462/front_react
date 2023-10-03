@@ -1,0 +1,114 @@
+
+* {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+  }
+  :root {
+    --main-color: #2196f3;
+    --main-color-alt: #1787e0;
+    --main-transition: 0.3s;
+    --main-padding-top: 100px;
+    --main-padding-bottom: 100px;
+    --section-background: #ececec;
+  }
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    font-family: "Cairo", sans-serif;
+  }.articles {
+    position: relative;
+  }
+  .articles .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    row-gap: 20px;
+    column-gap: 40px;
+    padding-top: 30px;
+    padding-bottom: 40px;
+  }
+  .articles .box {
+    box-shadow: 0 2px 15px rgb(0 0 0 / 10%);
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    transition: transform var(--main-transition), box-shadow var(--main-transition);
+    height: 200px;
+    position: relative;
+  }
+  .articles .box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 2px 15px rgb(0 0 0 / 20%);
+  }
+  .articles .box img {
+    width: 100%;
+    /* height: 150px; */
+    max-width: 100%;
+  }
+  .articles .box .content {
+    padding: 10px;
+    /* width: 100%; */
+  }
+  .articles .box .content {
+    margin: 0;
+    font-size: 20px;
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 100%;
+    overflow: hidden;
+    background-color:#77777763;
+    z-index: 10;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+ 
+  .articles .box .content .test {
+    margin: 8px 0 0;
+    color: #0b0606;
+    transition: 0.4s;
+  }
+  .articles .box .content .test:hover{
+    color: #1787e0;
+    transform: scale(1.2);
+    
+  }
+  .articles .box:hover .info i {
+    animation: moving-arrow 0.6s linear infinite;
+  }
+  .articles .container .image_product{
+    /* height: 200px; */
+    width: 100%;
+  }
+  /* End Articles */
+  /* start product Details */
+.productDetails{
+  position: relative;
+  height: 100vh !important;
+  
+
+}
+.productDetails .productDes{
+  padding: 10px;
+  background-color: white;
+  width: 90%;
+  margin: auto;
+  border-radius: 25px;
+  color: #0b0606;
+}
+.containrImage{
+  height: 100%;
+  width: 100%;
+}
+.imageProduct{
+ display: flex;
+ justify-content: center;
+ gap: 8px;
+}
+.imageProduct img{
+  width: 75px;
+  height: 75px;
+}
