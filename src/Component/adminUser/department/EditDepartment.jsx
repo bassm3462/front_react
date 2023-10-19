@@ -5,20 +5,20 @@ import { useParams } from "react-router-dom";
 import {
   getDepartment,
   UpdateDepartment,
-  UpdateFiLE
+  UpdateFiLE,
 } from "../../../redux/DepartmentSlice/departmentAction";
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
-
 import ClipLoader from "react-spinners/ClipLoader";
-import useEnhancedEffect from "@mui/material/utils/useEnhancedEffect";
 export default function EditDepartment() {
   const dispatch = useDispatch();
   const Params = useParams();
   const [info, SetInfo] = useState("");
-  const { isLoading,isSuccess, isError, message,departments } = useSelector((state) => {
-    return state.departments;
-  });
+  const { isLoading, isSuccess, isError, message, departments } = useSelector(
+    (state) => {
+      return state.departments;
+    }
+  );
   const [name, setName] = useState("");
   const [Category, setCategory] = useState("");
   const [description, setdescription] = useState("");
@@ -33,9 +33,9 @@ export default function EditDepartment() {
       const dataEdit = departments.find((dep) => dep._id === DepartmentID);
       if (dataEdit !== undefined) {
         SetInfo(dataEdit);
-        setName(dataEdit?.name)
-        setCategory(dataEdit?.Category)
-        setdescription(dataEdit?.description)
+        setName(dataEdit?.name);
+        setCategory(dataEdit?.Category);
+        setdescription(dataEdit?.description);
       }
     }
   }, [departments, DepartmentID]);
@@ -45,21 +45,23 @@ export default function EditDepartment() {
     console.log(DepartmentID);
   };
   const handleSubmitFile = (e) => {
-e.preventDefault()
-const formData = new FormData();
-formData.append("imageEdit", imageEdit)
-formData.append("image", image);
-dispatch(UpdateFiLE({formData,DepartmentID}))
-console.log(formData);
+    e.preventDefault();
+    const formData = new FormData();
+    formData.append("imageEdit", imageEdit);
+    formData.append("image", image);
+    dispatch(UpdateFiLE({ formData, DepartmentID }));
+    console.log(formData);
   };
-  useEffect(()=>{
-    if(isSuccess){ toast.success(message)}
-    console.log(message)
-  },[message])
+  useEffect(() => {
+    if (isSuccess) {
+      toast.success(message);
+    }
+    console.log(message);
+  }, [message]);
   return (
     <>
       <div className="container bootstrap snippets bootdey">
-        <ToastContainer/>
+        <ToastContainer />
         <h1 className="text-primary">Edit Department {info.name}</h1>
         <hr />
         <div className="row">
@@ -122,7 +124,6 @@ console.log(formData);
                   <input
                     className="form-control"
                     type="text"
-                 
                     value={name}
                     onChange={(e) => setName(e.target.value)}
                   />

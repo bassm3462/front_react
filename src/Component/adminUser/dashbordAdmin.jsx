@@ -1,7 +1,7 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Box, CssBaseline, Toolbar,  } from "@mui/material";
 import ResponsiveDrawer from "./Drawer";
-import Dashborad from "./Dashboard.jsx";
+import Dashborad from "./Dashboard/Dashboard.jsx";
 export default function DashbordAdmin() {
   
   const drawerWidth = 240;
@@ -13,7 +13,7 @@ export default function DashbordAdmin() {
         sx={{
           flexGrow: 1,
           p: 3,
-          width: { sm: `calc(100% - ${drawerWidth}px)` },
+          width: { sm: `calc(100% - ${drawerWidth}px)`,backgroundColor:"#f1f5f9" },
         }}
       >
         <Toolbar />

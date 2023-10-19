@@ -28,7 +28,9 @@ export const displayProduct = createAsyncThunk("Products/display/", async (Depar
             method: "get",
             url: `${backendURL}/api/Employ/Data/${DepartmentID}`,
             headers: {
-                'Accept': 'application/json', "token": `${token}`
+                'content-type': 'application/json; charset=utf-8',
+                Accept: "application/json",
+                "token":token
             }
         })
         if (response) {
@@ -43,12 +45,12 @@ export const displayProduct = createAsyncThunk("Products/display/", async (Depar
 })
 export const displaySingleProduct = createAsyncThunk("Product/display/Product", async (ProductID, thunkAPI) => {
     try {
-
         const response = axios({
             method: "get",
             url: `${backendURL}/api/Employ/Data/Product/${ProductID}`,
             headers:
             {
+                'content-type': 'application/json; charset=utf-8',
                 Accept: "application/json",
                 'Content-Type': 'multipart/form-data',
                 "token": token
@@ -62,33 +64,6 @@ export const displaySingleProduct = createAsyncThunk("Product/display/Product", 
         if (error) {
             return thunkAPI.rejectWithValue(error.response.data.message)
         }
-    }
-})
-export const UploadImageProduct = createAsyncThunk("Product/Upload/image", async ({ ProductID, formData }, thunkAPI) => {
-    try {
-        if (formData) {
-            for (const value of formData.values()) {
-                console.log(value);
-            }
-        }
-        const response = await axios({
-            method: "post",
-            url: `${backendURL}/api/Employ/UploadImage?id=${ProductID}`,
-            headers: {
-                // Accept: "application/json",
-                'Content-Type': 'multipart/form-data',
-                "token": token
-            },
-            data: { formData }
-        });
-        if (response || response?.data) {
-            return response.data
-        }
-    } catch (error) {
-        if (error) {
-            return thunkAPI.rejectWithValue(error.response.data.message)
-        }
-
     }
 })
 export const DispalyProductAndDepartment = createAsyncThunk("Admin/productList", async (thunkAPI) => {
@@ -104,8 +79,8 @@ export const DispalyProductAndDepartment = createAsyncThunk("Admin/productList",
                 "token": token
             }
         })
-        if (response?.data) {
-            return response.data
+        if (response) {
+            return response
         }
     }
     catch (error) {

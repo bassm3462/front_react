@@ -1,5 +1,5 @@
 import React from "react";
-import "../style/home.css";
+import "./style/home.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Header from "./header/header";
 import Department from "./page/Department";
@@ -9,7 +9,7 @@ import About from "./page/About";
 import Dashborad from "./page/Dashborad";
 import { useState, useEffect } from "react";
 import { GridLoader,ClipLoader } from "react-spinners";
-import { override } from "../style/style";
+import { override } from "./style/style";
 import Services from "./page/service"
 function Home() {
   const [loading, setLoading] = useState(false);

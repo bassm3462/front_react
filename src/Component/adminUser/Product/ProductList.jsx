@@ -2,6 +2,11 @@ import React, { useState, useEffect } from "react";
 import { DispalyProductAndDepartment } from "../../../redux/ProductSlice/ProductAction";
 import { useDispatch, useSelector } from "react-redux";
 function ProductList() {
+  const { products } = useSelector((state) => {
+    return state.products;
+  });
+  console.log(products)
+
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(DispalyProductAndDepartment());
@@ -16,108 +21,37 @@ function ProductList() {
         <table className="fs-15 w-full">
           <thead>
             <tr>
-              <td>Name</td>
-              <td>Finish Date</td>
-              <td>Client</td>
+              <td>Title</td>
+              <td>Department Nme</td>
               <td>Price</td>
-              <td>Team</td>
-              <td>Status</td>
+              <td>Product quantity </td>
+              <td>Available product</td>
+              <td>Image of product</td>
+              <td>Product state</td>
+
+              
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>Ministry Wikipedia</td>
-              <td>10 May 2022</td>
-              <td>Ministry</td>
-              <td>$5300</td>
-              <td>
-                <img src="/image/team-01.png" alt="" />
-                <img src="/image/team-02.png" alt="" />
-                <img src="/image/team-03.png" alt="" />
-                <img src="/image/team-05.png" alt="" />
-              </td>
-              <td>
-                <span className="label btn-shape bg-orange c-white">
-                  Pending
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>Elzero Shop</td>
-              <td>12 Oct 2021</td>
-              <td>Elzero Company</td>
-              <td>$1500</td>
-              <td>
-                <img src="/image/team-01.png" alt="" />
-                <img src="/image/team-02.png" alt="" />
-                <img src="/image/team-05.png" alt="" />
-              </td>
-              <td>
-                <span className="label btn-shape bg-blue c-white">
-                  In Progress
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>Bouba App</td>
-              <td>05 Sep 2021</td>
-              <td>Bouba</td>
-              <td>$800</td>
-              <td>
-                <img src="/image/team-02.png" alt="" />
-                <img src="/image/team-03.png" alt="" />
-              </td>
-              <td>
-                <span className="label btn-shape bg-green c-white">
-                  Completed
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>Mahmoud Website</td>
-              <td>22 May 2021</td>
-              <td>Mahmoud</td>
-              <td>$600</td>
-              <td>
-                <img src="/image/team-01.png" alt="" />
-                <img src="/image/team-02.png" alt="" />
-              </td>
-              <td>
-                <span className="label btn-shape bg-green c-white">
-                  Completed
-                </span>
-              </td>
-            </tr>
-            <tr>
-              <td>Sayed Website</td>
-              <td>24 May 2021</td>
-              <td>Sayed</td>
-              <td>$300</td>
-              <td>
-                <img src="/image/team-01.png" alt="" />
-                <img src="/image/team-03.png" alt="" />
-              </td>
-              <td>
-                <span className="label btn-shape bg-red c-white">Rejected</span>
-              </td>
-            </tr>
-            <tr>
-              <td>Arena Application</td>
-              <td>01 Mar 2021</td>
-              <td>Arena Company</td>
-              <td>$2600</td>
-              <td>
-                <img src="/image/team-01.png" alt="" />
-                <img src="/image/team-02.png" alt="" />
-                <img src="/image/team-03.png" alt="" />
-                <img src="/image/team-04.png" alt="" />
-              </td>
-              <td>
-                <span className="label btn-shape bg-green c-white">
-                  Completed
-                </span>
-              </td>
-            </tr>
+            {Array.isArray?
+            products?.map((product) => (
+             <tr>
+             <td>{product.name}</td>
+             <td>{product.departmentID.name}</td>
+             <td>{product.price}</td>
+             <td>{product.quantity} </td>
+             <td>{product.Available} </td>
+             <td>
+               <div>
+                <img src={`http://localhost:4000/${product.image}`} alt="" />
+               </div>
+             </td>
+             <td>
+               <span className="label btn-shape bg-orange c-white">
+                 Pending
+               </span>
+             </td>
+           </tr>)):<span>is array</span> }
           </tbody>
         </table>
       </div>

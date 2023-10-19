@@ -4,7 +4,6 @@ import { Box, Toolbar } from "@mui/material";
 import ResponsiveDrawer from "../Drawer";
 import AddEmploy from "./addEmploy";
 import EmployList from "./Employlist";
-
 export default function Employe() {
   const drawerWidth = 240;
   return (

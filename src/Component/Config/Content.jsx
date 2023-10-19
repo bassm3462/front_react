@@ -2,7 +2,7 @@ import { faListCheck } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { AddBox, GradingOutlined, GradingTwoTone, Home, ManageAccounts, NotificationsActive, PersonAdd, Settings, VideoCameraBack } from "@mui/icons-material";
 import { Button, Link } from "@mui/material";
-import { indigo, purple } from "@mui/material/colors";
+import { cyan, grey, indigo, pink, purple } from "@mui/material/colors";
 import { styled } from '@mui/material/styles';
 // import styled from 'styled-components'
 export const contact = [
@@ -84,11 +84,7 @@ export const EmployLink2 = [
     Link: "/Information/user",
     Icon: <ManageAccounts />,
   },
-  {
-    name: "Setting",
-    Link: "/admin/Employ",
-    Icon: <Settings />,
-  },
+ 
 ];
 
 export const ColorButton = styled(Button)(({ theme }) => ({
@@ -112,5 +108,19 @@ export const ColorLink = styled(Button)(({ theme }) => ({
   backgroundColor: purple[500],
   '&:hover': {
     backgroundColor: purple[700],
+  },
+}));
+export const ButtonClearState = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText(purple[500]),
+  backgroundColor: cyan[400],
+  '&:hover': {
+    backgroundColor: cyan[900],
+  },
+}));
+export const ButtonSave = styled(Button)(({ theme }) => ({
+  color: theme.palette.getContrastText(grey[500]),
+  backgroundColor: grey[400],
+  '&:hover': {
+    backgroundColor: grey[900],
   },
 }));

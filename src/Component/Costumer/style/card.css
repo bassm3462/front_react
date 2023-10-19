@@ -1,0 +1,59 @@
+.gradient-custom {
+  /* fallback for old browsers */
+  background: #6a11cb;
+
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  background: linear-gradient(to right, rgba(106, 17, 203, 1), rgba(37, 117, 252, 1));
+
+}
+
+.boxProductNumber {
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid #6a11cb;
+}
+
+.buttonRemoveFromCard {
+  background-color: transparent;
+  border: none;
+  color: #777 !important;
+  transition: 0.3s;
+}
+
+.buttonRemoveFromCard:hover {
+  cursor: pointer;
+  transform: scale(1.1);
+}
+
+.NoProductINshopping{
+  text-align: center;
+border-radius: 50px;
+border-width: 0;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;color: #008000;
+cursor: pointer;
+font-family: Arial, sans-serif;
+font-size: 1em;
+height: 300px;
+width: 300px;
+max-width:100%;
+max-height: 100%;
+margin: auto;
+padding: 0 25px;
+transition: all 200ms;
+}
+.centerNoShopping{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+height: 100%;
+}
+.centerNoShopping img{
+  width: 100px;
+}
+.centerNoShopping{
+  
+}

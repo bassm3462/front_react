@@ -1,0 +1,78 @@
+
+.boxDepartment{
+    width: 200px;
+    max-width: 200px;
+    height: 200px;
+    max-height: 200px;
+    background-color: #455a64;
+    color: white;
+}
+.h1Dahboard {
+  margin: 20px 20px 40px !important;
+}
+.h1Dahboard::before,
+.h1Dahboard::after {
+  content: "";
+  height: 3px;
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+}
+.h1Dahboard::before {
+  background-color: white;
+  width: 120px;
+}
+.h1Dahboard::after {
+  background-color: black;
+  width: 40px;
+}
+.welcome {
+    overflow: hidden;
+  }
+  .welcome .intro img {
+    width: 200px;
+    margin-bottom: -10px;
+  }
+  .welcome .avatar {
+    width: 64px;
+    height: 64px;
+    border: 2px solid white;
+    border-radius: 50%;
+    padding: 2px;
+    box-shadow: 0 0 5px #ddd;
+    margin-left: 20px;
+    margin-top: -32px;
+  }
+  .welcome .body {
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #eee;
+  }
+  .welcome .body > div {
+    flex: 1;
+  }
+  .welcome .visit {
+    margin: 0 15px 15px auto;
+    transition: 0.3s;
+  }
+  .welcome .visit:hover {
+    background-color: var(--blue-alt-color);
+  }
+  @media (max-width: 767px) {
+    .welcome .intro {
+      padding-bottom: 30px;
+    }
+    .welcome .avatar {
+      margin-left: 0;
+    }
+    .welcome .body > div:not(:last-child) {
+      margin-bottom: 20px;
+    }
+  }
+  .chartPie{
+   width: 100%;
+  }
+  .pie{
+    width: 100%;
+    margin: auto;
+    max-width: 600px;
+  }

@@ -42,13 +42,14 @@ export default function AddProduct() {
     <>
       <div className="container bootstrap snippets bootdey">
         <h1 className="text-primary">Products</h1>
+        <img src={`image/${image}`}alt="" srcset="" />
         <hr />
         <div className="row">
           {/* left column */}
           <div className="col-md-3">
             <div className="text-center">
               <img
-                src="https://bootdey.com/img/Content/avatar/avatar7.png"
+                src="/image/alexander-andrews-BX4Q0gojWAs-unsplash.jpg"
                 className="avatar img-circle img-thumbnail"
                 alt="avatar"
               />

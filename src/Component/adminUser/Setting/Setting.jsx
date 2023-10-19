@@ -9,7 +9,7 @@ export default function Setting() {
       <ResponsiveDrawer drawerWidth={drawerWidth} />
       <Box
         component="main"
-        sx={{ flexGrow: 1,p: 3,width: { sm: `calc(100% - ${drawerWidth}px)` }, }}  >
+        sx={{ flexGrow: 1,p: 3,width: { sm: `calc(100% - ${drawerWidth}px)` }, backgroundColor:"#f1f5f9" }}  >
         <Toolbar />
         < SettingInformation />
       </Box>

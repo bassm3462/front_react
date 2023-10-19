@@ -64,11 +64,12 @@ const loginUser = createAsyncThunk(
 // update
 const UpdateUser = createAsyncThunk(
   'auth/UPDATE',
-  async ({ name, email, password, repeat_password, Phone }, thunkAPI) => {
+  async (
+    formData, thunkAPI) => {
     try {
       const response = await axios({
         method: "put", url: `${backendURL}/api/User/Update/:${localStorage.getItem("token")}`, headers: { 'Content-Type': 'application/json' },
-        data: JSON.stringify({ name, email, password, repeat_password, Phone })
+        data: formData
       })
       if (response?.data) { return response.data }
     } catch (error) {

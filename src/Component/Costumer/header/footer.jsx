@@ -25,7 +25,7 @@ const Footer = () => {
     <div className="footer">
       <div className="container">
         <div className="box">
-          <h3>Elzero</h3>
+          <h3>Logo</h3>
           <ul className="social">
             <li>
               <a href="#" className="facebook">

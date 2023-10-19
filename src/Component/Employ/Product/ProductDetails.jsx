@@ -12,15 +12,16 @@ import React, { useEffect, useState } from "react";
 import { ColorLink } from "../../Config/Content";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useDispatch, useSelector } from "react-redux";
+import { displaySingleProduct } from "../../../redux/ProductSlice/ProductAction";
 import {
-  displaySingleProduct,
+  displayArrayImageProduct,
   UploadImageProduct,
-} from "../../../redux/ProductSlice/ProductAction";
+} from "../../../redux/UploadeArrayImageSlice/ImageAction";
 import { useParams } from "react-router";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
 import { getSingleDepartment } from "../../../redux/DepartmentSlice/departmentAction";
-import {info} from "../../../redux/api/axios"
+// import { info } from "../../../redux/api/axios";
 export default function ProductDetails() {
   const { products } = useSelector((state) => {
     return state.products;
@@ -28,6 +29,11 @@ export default function ProductDetails() {
   const { departments } = useSelector((state) => {
     return state.departments;
   });
+  const { Images } = useSelector((state) => {
+    return state.images;
+  });
+   const info = JSON.parse(localStorage.getItem("user"))
+  const ImageLoop = Images.image;
   const Params = useParams();
   const ProductID = Params.id;
   const dispatch = useDispatch();
@@ -42,30 +48,21 @@ export default function ProductDetails() {
   const handback = () => {
     navigate("/Employ/Products/");
   };
-  const handleImageChange=(e)=>{
+  const handleImageChange = (e) => {
     const files = Array.from(e.target.files);
-//     files.forEach(file=>{
-//       const render=new FileReader
-//       render.readAsDataURL(file)
-//       render.onloadend=()=>{
-// setImage(oldArray=>[...oldArray,render.result])
-//       }
-//     })
-    setImage(files)
-  }
+    setImage(files);
+  };
   const handlSubmit = (e) => {
     e.preventDefault(e);
     const formData = new FormData();
     image.forEach((image, i) => {
-      formData.append(`image[${i}]`, image);
+      formData.append(`images`, image);
     });
-    formData.append("image",image)
     dispatch(UploadImageProduct({ ProductID, formData }));
-    // console.log(image);
-    // for (const value of formData.values()) {
-    //   console.log(value);}
-    // setImage([]);
   };
+  useEffect(() => {
+    dispatch(displayArrayImageProduct(ProductID));
+  }, [image]);
   return (
     <section
       className="h-100 h-custom productDetails"
@@ -91,7 +88,7 @@ export default function ProductDetails() {
                         <p className="mb-0">You can upload 6 max images </p>
                       </div>
                       <div>
-                        <img src={image} ></img>
+                        <img src={image}></img>
                         <p>
                           <span className="text-muted">Price:</span>
                           <a href="#!" className="text-body">
@@ -111,29 +108,30 @@ export default function ProductDetails() {
                           height={"250px"}
                         />
                         <div className="imageProduct">
-                          <img
-                            src={`http://localhost:4000/${products.image}`}
-                            className=""
-                            alt="avatar"
-                          />
-                          <img
-                            src={`http://localhost:4000/${products.image}`}
-                            className=""
-                            alt="avatar"
-                          />
-                          <img
-                            src={`http://localhost:4000/${products.image}`}
-                            className=""
-                            alt="avatar"
-                          />
+                          {ImageLoop? (
+                            Array.isArray(ImageLoop) ? (
+                              ImageLoop.map((row,index) => (
+                                <img
+                                  key={index}
+                                  src={`http://localhost:4000/${row.filename}`}
+                                  className=""
+                                  alt="avatar"
+                                />
+                              ))
+                            ) : (
+                              <span>No Image Upload</span>
+                            )
+                          ) : (
+                            <span>No Image Uploaded</span>
+                          )}
                         </div>
                         <h6>Upload a different photo...</h6>
                         <form onSubmit={(e) => handlSubmit(e)}>
                           <input
                             type="file"
                             className="form-control"
-                          onChange={handleImageChange}
-                          multiple
+                            onChange={handleImageChange}
+                            multiple
                           />
                         </form>
                       </div>
@@ -144,7 +142,6 @@ export default function ProductDetails() {
                         >
                           save image
                         </button>
-
                         <Button variant="outlined" onClick={handback}>
                           Back
                         </Button>

@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { useCookies } from "react-cookie";
+import React, { useState } from "react";
 import axios from "axios";
 import { ToastContainer, toast } from "react-toastify";
 import {
@@ -23,7 +22,6 @@ export default function Modal() {
   const [description, setDescription] = useState("");
   const [message, setMessage] = useState("");
   const [basicModal, setBasicModal] = useState(false);
-  const [cookie, setCookie] = useCookies(["token"]);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const formData = new FormData();
@@ -53,7 +51,6 @@ export default function Modal() {
   const toggleShow = () => setBasicModal(!basicModal);
   return (
     <>
-      {/* <div>{message}</div>  */}
       <ToastContainer />
       <ColorButton onClick={toggleShow} variant="outlined" sx={{ mb: "3px" }} startIcon={<AddBox />}>
         ADD
@@ -122,7 +119,6 @@ export default function Modal() {
                         }
                       />
                     </div>
-
                   </form>
                 </div>
               </div>

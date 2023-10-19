@@ -8,7 +8,7 @@ export default function Employe() {
   const drawerWidth = 240;
   return (
     <Box sx={{ display: "flex" }}>
-      <ResponsiveDrawer drawerWidth={drawerWidth}/>
+      <ResponsiveDrawer drawerWidth={drawerWidth} />
       <Box
         component="main"
         sx={{

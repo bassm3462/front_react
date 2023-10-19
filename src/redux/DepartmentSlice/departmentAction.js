@@ -15,7 +15,6 @@ export const getDepartment = createAsyncThunk("Department/show", async (thunkAPI
 })
 export const UpdateDepartment = createAsyncThunk("Department/Edit", async ({ name, Category, description, DepartmentID }, thunkAPI) => {
   try {
-    console.log(DepartmentID);
     const response = await axios({
       method: "put",
       url: `${backendURL}/api//Department/Edit/${DepartmentID}`,
@@ -64,7 +63,7 @@ export const UpdateFiLE = createAsyncThunk("Department/Edit/File", async ({ form
 })
 export const getSingleDepartment = createAsyncThunk("Department/department/", async (DepartmentID, thunkAPI) => {
   try {
-    console.log(DepartmentID);
+    const token= localStorage.getItem("token")
     const response = await axios({
       method:"get",
       url:`${backendURL}/api/Department/Display/${DepartmentID}`,
@@ -72,7 +71,6 @@ export const getSingleDepartment = createAsyncThunk("Department/department/", as
           "Content-Type":"application/json",
           "token": token,
         },
-
     });
     return (response.data.response);
   } catch (error) {

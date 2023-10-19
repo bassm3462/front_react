@@ -23,8 +23,9 @@ import EditDepartment from "./Component/adminUser/department/EditDepartment.jsx"
 import Order from "./Component/adminUser/Order/Order"
 import AdminListProduct from "./Component/adminUser/Product/Product.jsx"
 import Setting from "./Component/adminUser/Setting/Setting";
-import ProductCostumer from "./Component/Costumer/productMangr/prouduct.jsx"
-import ProductOverview from "./Component/Costumer/productMangr/ProductOverview";
+import ProductCostumer from "./Component/Costumer/Products/prouduct.jsx"
+import ProductOverview from "./Component/Costumer/Products/ProductOverview";
+import CardCostumer from "./Component/Costumer/Cart/Card"
 export default function App() {
   return (
     <>
@@ -44,10 +45,11 @@ export default function App() {
           <Route path="/Employ/Add/Products/" element={<AddProduct />} />
           <Route path="/Department/Edit/:id" element={<EditDepartment />} />
           <Route path="/admin/Camera/" element={<Cameras />} />
-          <Route path="/admin/Order" element={<Order/>}/>
-          <Route path="/admin/Product" element={<AdminListProduct/>}/>
-          <Route path="/admin/Setting" element={<Setting/>}/>
-          <Route  path ="/Costumer/ProductOverview"element={ <ProductOverview/> }></Route >
+          <Route path="/admin/Order" element={<Order />} />
+          <Route path="/admin/Product" element={<AdminListProduct />} />
+          <Route path="/admin/Setting" element={<Setting />} />
+          <Route path="/Costumer/ProductOverview" element={<ProductOverview />}></Route >
+          <Route path="/Costumer/card" element={<CardCostumer />}></Route >
         </Route>
         <Route path="/user/ResatPassword" element={<ResatPassword />} />
         <Route path="/register" element={<Register />} />

@@ -17,10 +17,9 @@ import {
 import { EmployLink, EmployLink2 } from "../../Config/Content";
 import { useNavigate } from "react-router-dom";
 import { Logout } from "@mui/icons-material";
-import Brightness4Icon from "@mui/icons-material/Brightness4";
 import Brightness7Icon from "@mui/icons-material/Brightness7";
-import { useDispatch, useSelector } from "react-redux";
-import { login, logout } from "../../../redux/userSlice/userSlice";
+import { useDispatch } from "react-redux";
+import { logout } from "../../../redux/userSlice/userSlice";
 import AppBa from "./AppBar";
 function ResponsiveDrawer(props) {
   const { window } = props;

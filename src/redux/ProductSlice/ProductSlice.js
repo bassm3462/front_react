@@ -81,11 +81,10 @@ const ProductSlice = createSlice({
         state = { ...state, loading: true };
       })
       .addCase(DispalyProductAndDepartment.fulfilled, (state, action) => {
-        if (action?.payload) {
           state.isError = false;
           state.isSuccess = true;
+          state.message="succe"
           state.products = action.payload.data.response;
-        }
       })
       .addCase(DispalyProductAndDepartment.rejected, (state, { payload }) => {
         state.isError = true;
@@ -93,6 +92,7 @@ const ProductSlice = createSlice({
         state.isSuccess = false;
         state.message = payload;
       });
+     
   },
 });
 export default ProductSlice.reducer;

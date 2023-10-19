@@ -16,7 +16,7 @@ function AppBa({ drawerWidth, handleDrawerToggle }) {
   const dispatch=useDispatch();
   useEffect(() => {
     dispatch(getSingleDepartment(info.Department));
-  }, [ ]);
+  }, []);
   return (
     <AppBar
       position="fixed"
@@ -36,7 +36,7 @@ function AppBa({ drawerWidth, handleDrawerToggle }) {
           <MenuIcon />
         </IconButton>
         <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
-          {departments?.name!==undefined?
+          {departments?.name?
           <span>{departments?.name}</span>:<span>No Department</span>
         }
         </Typography>

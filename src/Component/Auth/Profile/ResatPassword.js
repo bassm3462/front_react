@@ -34,7 +34,7 @@ function ResatPassword() {
         <div className='position-absolute top-50 start-50 translate-middle'>
           <div className="position-relative container">
         <Form className=" "onSubmit={(e) => handleSubmit(e)} >
-<h1 className="center"> Resat Password</h1>
+<h1 > Resat Password</h1>
       <Form.Group className="mb-3 position-relative" controlId="exampleForm.ControlInput1 ">
         <Form.Label>Pleas Enter Email address to Resat Password:</Form.Label>
         <Form.Control type="email" placeholder="email@example.com" value={email} onChange={(e)=>setEmail(e.target.value)}  />

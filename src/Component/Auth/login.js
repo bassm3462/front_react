@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 // Bootstrap Bundle JS
 import "bootstrap/dist/css/bootstrap.min.css";
-import '../style/login.css';
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { Link, useNavigate } from "react-router-dom";

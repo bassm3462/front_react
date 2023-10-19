@@ -6,7 +6,7 @@ import {
   faFacebookF,
   faInstagram
 } from "@fortawesome/free-brands-svg-icons";
-import { override } from "../../style/style";
+import { override } from "../../Costumer/style/style";
 import { GridLoader } from "react-spinners";
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';

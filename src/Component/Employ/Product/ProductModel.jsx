@@ -8,9 +8,10 @@ import { IconButton, Menu, MenuItem } from "@mui/material";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Delete, Edit } from "@mui/icons-material";
 function ProductModel() {
-  const { isSuccess, isError, message, products } = useSelector((state) => {
+  const {  products } = useSelector((state) => {
     return state.products;
   });
+  console.log(products);
   const options = [
     { text: "Delete", Icon: <Delete /> },
     { text: "Edit", Icon: <Edit /> },
@@ -32,9 +33,9 @@ function ProductModel() {
   };
   return (
     <div className="articles" id="articles">
-      <div className="container">
+      <div className="container11">
         {Array.isArray(products) ? (
-          products.map(({ _id, image, name, description, price }) => (
+          products.map(({ _id, image, name, }) => (
             <div className="box" key={_id}>
               <img src={`http://127.0.0.1:4000/${image}`} alt="" />
               <div className="content">
