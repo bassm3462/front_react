@@ -72,6 +72,12 @@ export const EmployLink = [
     Link: "/Employ/Add/Products/",
     Icon: <PersonAdd />,
   },
+
+  {
+    name: "Add Offers",
+    Link: "/Employ/offers",
+    Icon: <PersonAdd />,
+  },
 ];
 export const EmployLink2 = [
   {

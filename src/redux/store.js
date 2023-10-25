@@ -7,6 +7,8 @@ import ImageState from "./UploadeArrayImageSlice/ImageSLice"
 import OrderState from "./CartSlice/CardSlice"
 import AboutState from "./AboutUsSlice/AboutSlice"
 import ServicesState from "./ServicesSlice/ServiceSlice"
+import ChatState from "./ChatSlice/ChatSlice"
+import OffersSlice from "./Offers/OffersSlice";
 const enhance= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 const store = configureStore({
     reducer: {
@@ -17,7 +19,10 @@ const store = configureStore({
         images:ImageState,
         OrderS:OrderState,
         About:AboutState,
-        Services:ServicesState
+        Services:ServicesState,
+        Chat:ChatState,
+        Offers:OffersSlice
+
     }
 },enhance())
 export default store;

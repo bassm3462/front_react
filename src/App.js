@@ -26,6 +26,9 @@ import Setting from "./Component/adminUser/Setting/Setting";
 import ProductCostumer from "./Component/Costumer/Products/prouduct.jsx"
 import ProductOverview from "./Component/Costumer/Products/ProductOverview";
 import CardCostumer from "./Component/Costumer/Cart/Card"
+import ChatUI from "./Component/Costumer/Chat/CHat.jsx"
+import Offers from "./Component/Costumer/Offers/Offers";
+import EmployOffers from "./Component/Employ/ADDOffers/Offers.jsx"
 export default function App() {
   return (
     <>
@@ -50,7 +53,11 @@ export default function App() {
           <Route path="/admin/Setting" element={<Setting />} />
           <Route path="/Costumer/ProductOverview" element={<ProductOverview />}></Route >
           <Route path="/Costumer/card" element={<CardCostumer />}></Route >
+          <Route path="/Costumer/Chat/:id" element={<ChatUI />}></Route >
+          <Route path="/Costumer/Offers" element={<Offers />}></Route >
+          <Route path="/Employ/offers" element ={<EmployOffers/>}></Route>
         </Route>
+
         <Route path="/user/ResatPassword" element={<ResatPassword />} />
         <Route path="/register" element={<Register />} />
       </Routes>
