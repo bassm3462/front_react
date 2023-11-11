@@ -10,6 +10,7 @@ import {
   faSquareInstagram,
 } from "@fortawesome/free-brands-svg-icons";
 import { Typography } from "@mui/material";
+import { backendURL } from "../../../redux/api/axios";
 function Department() {
   const [data, setData] = useState("");
   const [department, setDpartment] = useState([]);
@@ -20,7 +21,7 @@ function Department() {
         headers: {
           token: localStorage.getItem("token"),
         },
-        url: "http://localhost:4000/api/dashboard",
+        url: `${backendURL}/api/dashboard`,
       }).then((response) => {
         setData(response.data.response);
       });
@@ -30,7 +31,7 @@ function Department() {
   useEffect(() => {
     axios({
       method: "GET",
-      url: "http://localhost:4000/api/Department/show",
+      url: `${backendURL}/api/Department/show`,
     })
       .then((response) => {
         console.log(response.data.response);
@@ -50,7 +51,7 @@ function Department() {
               <div className="box" key={_id}>
                 <div className="data">
                   <NavLink to={`/Costumer/product/${_id}`}>
-                    <img src={`http://127.0.0.1:4000/${image}`} alt="" />
+                    <img src={`${backendURL}/${image}`} alt="" />
                   </NavLink>
                   <div className="social">
                     <a href="#">

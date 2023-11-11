@@ -6,12 +6,6 @@ import { useEffect, useState, CSSProperties } from "react";
 import ClipLoader from "react-spinners/ClipLoader";
 export default function User() {
   const [loading, setLoading] = useState(false);
-  // const override:CSSProperties = {
-  //   display: "block",
-  //   margin: "0 auto",
-  //   borderColor: "red",
-  // };
-  // let [color, setColor] = useState("#ffffff");
   useEffect(() => {
     setLoading(true);
     setTimeout(() => {

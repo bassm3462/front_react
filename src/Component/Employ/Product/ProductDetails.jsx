@@ -21,6 +21,7 @@ import { useParams } from "react-router";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router";
 import { getSingleDepartment } from "../../../redux/DepartmentSlice/departmentAction";
+import { backendURL } from "../../../redux/api/axios";
 // import { info } from "../../../redux/api/axios";
 export default function ProductDetails() {
   const { products } = useSelector((state) => {
@@ -101,7 +102,7 @@ export default function ProductDetails() {
                     <div className="">
                       <div className="text-center">
                         <img
-                          src={`http://localhost:4000/${products.image}`}
+                          src={`${backendURL}/${products.image}`}
                           className="avatar img-circle img-thumbnail"
                           alt="avatar"
                           width={"250px"}
@@ -113,7 +114,7 @@ export default function ProductDetails() {
                               ImageLoop.map((row,index) => (
                                 <img
                                   key={index}
-                                  src={`http://localhost:4000/${row.filename}`}
+                                  src={`${backendURL}/${row.filename}`}
                                   className=""
                                   alt="avatar"
                                 />
@@ -156,7 +157,7 @@ export default function ProductDetails() {
                             Product Details
                           </MDBTypography>
                           <MDBCardImage
-                            src={`http://127.0.0.1:4000/${products.image}`}
+                            src={`${backendURL}/${products.image}`}
                             fluid
                             className="rounded-3"
                             style={{ width: "45px" }}

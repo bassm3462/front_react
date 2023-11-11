@@ -8,7 +8,7 @@ import Contact from "./page/Contact";
 import About from "./page/About";
 import Dashborad from "./page/Dashborad";
 import { useState, useEffect } from "react";
-import { GridLoader,ClipLoader } from "react-spinners";
+import {ClipLoader } from "react-spinners";
 import { override } from "./style/style";
 import Services from "./page/service"
 function Home() {

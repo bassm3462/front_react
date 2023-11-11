@@ -22,11 +22,13 @@ export default function AddProduct() {
   const [price, setPrice] = useState("");
   const [quantity, setQuantity] = useState("");
   const [image, setImage] = useState(null);
+  const [Details,setDetails]=useState(null)
   const handlSubmit = (e) => {
     e.preventDefault();
     const formData = new FormData();
     console.log(image)
     formData.append("image", image);
+    formData.append("Details", Details);
     formData.append("name", name);
     formData.append("price", price);
     formData.append("description", description);
@@ -87,7 +89,7 @@ export default function AddProduct() {
               <div className="form-group">
                 <label className="col-lg-3 control-label">Description:</label>
                 <div className="col-lg-8">
-                  <input
+                  <textarea
                     className="form-control"
                     type="text"
                     value={description}
@@ -121,37 +123,12 @@ export default function AddProduct() {
                   />
                 </div>
               </div>
+            
               <input
                   type="hidden"
                   value={departmentID}
                   onChange={(e) => setDepartment(e.target.value)}
                 ></input>
-              {/* <div className="form-group">
-                <label className="col-lg-3 control-label">Department:</label>
-                <div className="col-lg-8">
-                  <div className="ui-select">
-                    <select
-                      class="form-select"
-                      aria-label="Default select example"
-                      value={departmentID}
-                      onChange={(e) => {
-                        setDepartment(e.target.value);
-                      }}
-                    >
-                      <option selected>Open this to chose Department</option>
-                      {data.departments &&
-                        data.departments?.map((item, index) => {
-                          return (
-                            <option
-                              key={item._id}
-                              value={`${item._id}`}
-                            >{`${item.name}`}</option>
-                          );
-                        })}
-                    </select>
-                  </div>
-                </div>
-              </div> */}
               <div>
                 <button
                   className="btn btn-primary mt-2"

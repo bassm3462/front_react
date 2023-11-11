@@ -7,13 +7,12 @@ import CardActions from "@mui/material/CardActions";
 import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
-import { red } from "@mui/material/colors";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { useSelector, useDispatch } from "react-redux";
 import { getAllOffers } from "../../../redux/Offers/OfferAction";
 import { Box, Button } from "@mui/material";
+import { backendURL } from "../../../redux/api/axios";
 export default function CardOffer() {
   const { isSuccess, message, setOffers } = useSelector((state) => {
     return state.Offers;
@@ -32,7 +31,7 @@ export default function CardOffer() {
               avatar={
                 <Avatar
                   alt="Remy Sharp"
-                  src={`http://localhost:4000/${item.DepartmentID.image}`}
+                  src={`${backendURL}/${item.DepartmentID.image}`}
                 />
               }
               action={
@@ -46,7 +45,7 @@ export default function CardOffer() {
             <CardMedia
               component="img"
               height="194"
-              image={`http://localhost:4000/${item.image}`}
+              image={`${backendURL}/${item.image}`}
               alt="Paella dish"
             />
             <CardContent>

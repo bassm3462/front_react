@@ -11,6 +11,7 @@ import { GridLoader } from "react-spinners";
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { MDBCol, MDBContainer, MDBRow, MDBCard, MDBCardText, MDBCardBody, MDBCardImage, MDBTypography, MDBIcon } from 'mdb-react-ui-kit';
+import { backendURL } from '../../../redux/api/axios';
 export default function PersonalProfile(props) {
   const [loading, setLoading] = useState(false);
   useEffect(() => {
@@ -38,7 +39,7 @@ export default function PersonalProfile(props) {
                     <MDBRow className="g-0">
                       <MDBCol md="4" className="gradient-custom text-center text-white"
                         style={{ borderTopLeftRadius: '.5rem', borderBottomLeftRadius: '.5rem' }}>
-                        <MDBCardImage src={`http://127.0.0.1:4000/${info.image}`}
+                        <MDBCardImage src={`${backendURL}/${info.image}`}
                           alt="Avatar" className="my-5" style={{ width: '100px', height: "100px", borderRadius: "50%" }} fluid />
                         {/* <MDBTypography tag="h5">Marie Horwitz</MDBTypography>
                         <MDBCardText>Web Designer</MDBCardText> */}

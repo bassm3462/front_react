@@ -89,3 +89,22 @@ export const DispalyProductAndDepartment = createAsyncThunk("Admin/productList",
         }
     }
 })
+export const RemoveProduct = createAsyncThunk("Employ/RemoveProduct", async (productID,thunkAPI) => {
+    try {
+
+        const response = axios({
+            method: "delete",
+            url: `${backendURL}/api/Employ/Product/Delete/${productID}`,
+            headers:{"token": token}
+        })
+        if (response) {
+            return response
+        }
+    }
+    catch (error) {
+        if (error) {
+            return thunkAPI.rejectWithValue(error.response.data.message)
+        }
+    }
+})
+

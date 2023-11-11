@@ -3,6 +3,7 @@ import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import { UpdateUser } from "../../../redux/userSlice/authActions"
 import { useDispatch } from "react-redux";
+import { backendURL } from "../../../redux/api/axios";
 export default function Update() {
   const dispatch = useDispatch();
   const info = JSON.parse(localStorage.getItem("user"))
@@ -41,12 +42,7 @@ export default function Update() {
     // dispatch(UpdateFiLE({ formData }));
     console.log(formData);
   };
-  // useEffect(() => {
-  //   if (isSuccess) {
-  //     toast.success(message);
-  //   }
-  //   console.log(message);
-  // }, [message]);
+  
   return (
     <>
       <div className="container bootstrap snippets bootdey">
@@ -57,7 +53,7 @@ export default function Update() {
           <div className="col-md-3">
             <div className="text-center">
               <img
-                src={`http://localhost:4000/${info.image}`}
+                src={`${backendURL}/${info.image}`}
                 className="avatar img-circle img-thumbnail"
                 alt="avatar"
               />

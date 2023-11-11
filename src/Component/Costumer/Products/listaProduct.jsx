@@ -2,6 +2,7 @@ import { Link, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { displayProduct } from "../../../redux/ProductSlice/ProductAction";
+import { backendURL } from "../../../redux/api/axios";
 function ListaProduct() {
   const dispatch = useDispatch();
   const Params = useParams();
@@ -31,7 +32,7 @@ function ListaProduct() {
               >
                 <Link to={`/Costumer/ProductOverview?idProduct=${_id}&&IdDepartment=${DepartmentID}`}>
                   <img
-                    src={`http://127.0.0.1:4000/${image}`}
+                    src={`${backendURL}/${image}`}
                     className="w-100"
                   />
                 </Link>

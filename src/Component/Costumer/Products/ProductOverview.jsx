@@ -7,13 +7,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { useLocation, useParams } from "react-router";
 import { useEffect } from "react";
 import { addToCart } from "../../../redux/CartSlice/CardSlice";
-import HeaderProduct from "../header/headerProduct";
 import { useState } from "react";
 import { ToastContainer } from "react-toastify";
 import { Badge } from "react-bootstrap";
 import { ArrowBack, ArrowCircleLeft, ArrowCircleLeftOutlined, ShoppingCart } from "@mui/icons-material";
 import { getTotals } from "../../../redux/CartSlice/CardSlice";
 import { Link } from "react-router-dom";
+import { backendURL } from "../../../redux/api/axios";
 const ProductOverview = () => {
   const { cartItem, cartTotalQuantity } = useSelector((state) => {
     return state.OrderS;
@@ -74,7 +74,7 @@ const ProductOverview = () => {
                       {" "}
                       <img
                         className=" center"
-                        src={`http://127.0.0.1:4000/${products.image}`}
+                        src={`${backendURL}/${products.image}`}
                         alt="Blue Jeans Jacket"
                       />
                     </div>

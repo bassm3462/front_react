@@ -13,6 +13,7 @@ import {
   ListItemText,
   useTheme,
   createTheme,
+  Typography,
 } from "@mui/material";
 import { EmployLink, EmployLink2 } from "../../Config/Content";
 import { useNavigate } from "react-router-dom";
@@ -21,6 +22,8 @@ import Brightness7Icon from "@mui/icons-material/Brightness7";
 import { useDispatch } from "react-redux";
 import { logout } from "../../../redux/userSlice/userSlice";
 import AppBa from "./AppBar";
+import moment from "moment/moment";
+
 function ResponsiveDrawer(props) {
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -33,18 +36,11 @@ function ResponsiveDrawer(props) {
   const logoutHandler = () => {
     dispatch(logout(true));
   };
-  const [myMOde, setmyMOde] = React.useState();
-  const darkTheme = createTheme({
-    palette: {
-      // @ts-ignore
-      mode: myMOde,
-      // @ts-ignore
-      ali: {
-        main: "#64748B",
-        contrastText: "#fff",
-      },
-    },
-  });
+  const [Date, setDate] = React.useState("");
+  React.useEffect(() => {
+    const formattedDate = moment().format(" h:mm:ss a");
+    setDate(formattedDate);
+  }, [ ]);
   const handlDarkMOde = () => {
     // setmyMOde(toString(Darkmode));
   };
@@ -56,21 +52,12 @@ function ResponsiveDrawer(props) {
           width: "100%",
           alignItems: "center",
           justifyContent: "center",
-          bgcolor: { myMOde },
           color: "text.primary",
           borderRadius: 1,
           p: 3,
         }}
       >
-        {theme.palette.mode} mode
-        <IconButton sx={{}} color="inherit" onClick={handlDarkMOde}>
-          {/* {theme.palette.mode === "dark" ? (
-            <Brightness7Icon />
-          ) : (
-            <Brightness4Icon />
-          )} */}
-          <Brightness7Icon />
-        </IconButton>
+  <Typography variant="h5" component="div"> {Date}</Typography>
       </Box>
       <Divider />
       <List>

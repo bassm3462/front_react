@@ -69,10 +69,11 @@
     margin: 8px 0 0;
     color: #0b0606;
     transition: 0.4s;
+    font-size: 15px;
   }
   .articles .box .content .test:hover{
     color: #1787e0;
-    transform: scale(1.2);
+    transform: scale(1.05);
   }
   .articles .box:hover .info i {
     animation: moving-arrow 0.6s linear infinite;

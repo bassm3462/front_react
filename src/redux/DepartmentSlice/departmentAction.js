@@ -17,7 +17,7 @@ export const UpdateDepartment = createAsyncThunk("Department/Edit", async ({ nam
   try {
     const response = await axios({
       method: "put",
-      url: `${backendURL}/api//Department/Edit/${DepartmentID}`,
+      url: `${backendURL}/api/Department/Edit/${DepartmentID}`,
       headers: {
         headers: {
           Accept: "application/json",

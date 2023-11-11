@@ -21,6 +21,7 @@ import { logout } from "../../../redux/userSlice/userSlice";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router";
 import { Link, NavLink } from "react-router-dom";
+import { backendURL } from "../../../redux/api/axios";
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
   borderRadius: theme.shape.borderRadius,
@@ -235,7 +236,7 @@ export default function Header() {
             >
               <Avatar
                 alt="Cindy Baker"
-                src={`http://127.0.0.1:4000/${info.image}`}
+                src={`${backendURL}/${info.image}`}
               />
             </IconButton>
           </Box>

@@ -5,6 +5,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import { Avatar } from "@mui/material";
+import { backendURL } from "../../redux/api/axios";
 function AppBa({ drawerWidth, handleDrawerToggle }) {
   const info = JSON.parse(localStorage.getItem("user"));
   return (
@@ -31,7 +32,7 @@ function AppBa({ drawerWidth, handleDrawerToggle }) {
         <Typography variant="h6" noWrap component="p" sx={{ marginRight: 3 }}>
           {info.name}
         </Typography>
-        <Avatar alt="Remy Sharp" src={`http://127.0.0.1:4000/${info.image}`} />
+        <Avatar alt="Remy Sharp" src={`${backendURL}/${info.image}`} />
       </Toolbar>
     </AppBar>
   );

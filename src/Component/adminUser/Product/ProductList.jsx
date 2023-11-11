@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { DispalyProductAndDepartment } from "../../../redux/ProductSlice/ProductAction";
 import { useDispatch, useSelector } from "react-redux";
+import { backendURL } from "../../../redux/api/axios";
 function ProductList() {
   const { products } = useSelector((state) => {
     return state.products;
@@ -43,7 +44,7 @@ function ProductList() {
              <td>{product.Available} </td>
              <td>
                <div>
-                <img src={`http://localhost:4000/${product.image}`} alt="" />
+                <img src={`${backendURL}/${product.image}`} alt="" />
                </div>
              </td>
              <td>

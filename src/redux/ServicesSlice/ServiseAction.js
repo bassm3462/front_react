@@ -7,7 +7,7 @@ export const AddServices = createAsyncThunk(
         try {
             const response = await axios({
                 method: "post",
-                url: backendURL + "/admin/services",
+                url: `${backendURL}/admin/services`,
                 headers: {
                     "Content-Type": "application/json",
                 },
@@ -29,7 +29,7 @@ export const getServices = createAsyncThunk(
     "/Admin/getUsers",
     async (thunkAPI) => {
         try {
-            const response = await axios.get("http://localhost:3001/api/v1/users");
+            const response = await axios.get(`${backendURL}/api/v1/users`);
         } catch (error) {
             if (error.response) {
                 return thunkAPI.rejectWithValue(error.response.data.message);

@@ -29,6 +29,7 @@ import {
 } from "../../../redux/CartSlice/CardSlice";
 import { useDispatch, useSelector } from "react-redux";
 import { useEffect } from "react";
+import { backendURL } from "../../../redux/api/axios";
 export default function Card() {
   const { cartItem, cartTotalAmount,cartTotalQuantity } = useSelector((state) => {
     return state.OrderS;
@@ -102,7 +103,7 @@ export default function Card() {
                               className="bg-image rounded hover-zoom hover-overlay"
                             >
                               <img
-                                src={`http://127.0.0.1:4000/${products.image}`}
+                                src={`${backendURL}/${products.image}`}
                                 className="w-100"
                               />
                               <a href="#!">

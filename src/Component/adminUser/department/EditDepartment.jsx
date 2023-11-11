@@ -10,6 +10,7 @@ import {
 import { useDispatch, useSelector } from "react-redux";
 import { ToastContainer, toast } from "react-toastify";
 import ClipLoader from "react-spinners/ClipLoader";
+import { backendURL } from "../../../redux/api/axios";
 export default function EditDepartment() {
   const dispatch = useDispatch();
   const Params = useParams();
@@ -76,7 +77,7 @@ export default function EditDepartment() {
                 />
               ) : (
                 <img
-                  src={`http://localhost:4000/${info.image}`}
+                  src={`${backendURL}/${info.image}`}
                   className="avatar img-circle img-thumbnail"
                   alt="avatar"
                 />

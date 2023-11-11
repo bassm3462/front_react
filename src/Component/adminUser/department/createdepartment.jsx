@@ -16,6 +16,7 @@ import { ColorButtonEdit } from "../../Config/Content";
 import { useNavigate } from "react-router";
 import { getDepartment } from "../../../redux/DepartmentSlice/departmentAction";
 import { useDispatch ,useSelector} from "react-redux";
+import { backendURL } from "../../../redux/api/axios";
 const DepartmentCreate = () => {
   const dispatch = useDispatch();
   const [Delet, setDelet] = useState([]);
@@ -80,7 +81,7 @@ const DepartmentCreate = () => {
               <StyledTableRow key={_id}>
                 <StyledTableCell component="th" scope="row">
                   <img
-                    src={`http://127.0.0.1:4000/${image}`}
+                    src={`${backendURL}/${image}`}
                     alt=""
                     width="200px"
                   />
