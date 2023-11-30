@@ -1,8 +1,5 @@
 import { createSlice,  } from "@reduxjs/toolkit";
 import { registerUser, loginUser, UpdateUser,ChakEmail } from "./authActions"
-import { TroubleshootOutlined } from "@mui/icons-material";
-import { json } from "react-router";
-import { faL } from "@fortawesome/free-solid-svg-icons";
 export const userSlice = createSlice({
   name: "user",
   initialState: {

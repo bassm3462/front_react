@@ -82,12 +82,12 @@ export const EmployLink = [
 export const EmployLink2 = [
   {
     name: "Notifications",
-    Link: "/Admin/Dashboard",
+    Link: "/Employ/offers",
     Icon: <NotificationsActive />,
   },
   {
     name: "Profile",
-    Link: "/Information/user",
+    Link: "/Employ/offers",
     Icon: <ManageAccounts />,
   },
  

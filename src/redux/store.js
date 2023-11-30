@@ -9,7 +9,7 @@ import AboutState from "./AboutUsSlice/AboutSlice"
 import ServicesState from "./ServicesSlice/ServiceSlice"
 import ChatState from "./ChatSlice/ChatSlice"
 import OffersSlice from "./Offers/OffersSlice";
-const enhance= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
+// const enhance= window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__
 const store = configureStore({
     reducer: {
         user: userSlice,
@@ -24,5 +24,5 @@ const store = configureStore({
         Offers:OffersSlice
 
     }
-},enhance())
+})
 export default store;
