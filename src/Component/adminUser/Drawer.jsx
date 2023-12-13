@@ -13,6 +13,7 @@ import {
   useTheme,
   createTheme,
   Typography,
+  Link,
 } from "@mui/material";
 import { contact, contact2 } from "../Config/Content";
 import { useNavigate } from "react-router-dom";
@@ -37,7 +38,7 @@ function ResponsiveDrawer(props) {
   React.useEffect(() => {
     const formattedDate = moment().format(" h:mm:ss a");
     setDate(formattedDate);
-  }, [ ]);
+  }, []);
   const drawer = (
     <div>
       <Box
@@ -51,7 +52,16 @@ function ResponsiveDrawer(props) {
           p: 3,
         }}
       >
-        <Typography variant="h5" component="div"> {Date}</Typography>
+        <Link href="https://urproducts.iq/" target="_blank">
+          <img
+            src="/image/image (4).png"
+            alt=""
+            width={"150px"}
+            loading="lazy"
+            className="hoverImageUR"
+
+          />
+        </Link>{" "}
       </Box>
       <Divider />
       <List>
@@ -124,7 +134,7 @@ function ResponsiveDrawer(props) {
             display: { xs: "block", sm: "none" },
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
-              width:props.drawerWidth,
+              width: props.drawerWidth,
             },
           }}
         >

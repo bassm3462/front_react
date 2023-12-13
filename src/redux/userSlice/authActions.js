@@ -1,7 +1,8 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { backendURL } from "../api/axios"
+import { backendURL, info } from "../api/axios"
 // register
+
 const registerUser = createAsyncThunk(
   'auth/register',
   async ({ name, email, password, repeat_password, Phone, Gender }, { rejectWithValue }) => {
@@ -61,6 +62,26 @@ const loginUser = createAsyncThunk(
       }
     }
   })
+  export const gitSingleUser = createAsyncThunk(
+    'auth/gitSingleUser',
+    async (thunkAPI) => {
+      try {
+        const response = await axios({
+          method: 'get',
+          url: `${backendURL}/api/gitSingleUser/${info._id}`,
+        })
+        if (response || response?.data) { return response.data }
+      }
+      catch (error) {
+        // return custom error message from backend if present
+        if (error.response && error.response.data.message) {
+          console.log(error.response.data.message)
+          return thunkAPI.rejectWithValue(error.response.data.message)
+        } else {
+          return thunkAPI.rejectWithValue(error.message)
+        }
+      }
+    })
 // update
 const UpdateUser = createAsyncThunk(
   'auth/UPDATE',
@@ -68,7 +89,7 @@ const UpdateUser = createAsyncThunk(
     formData, thunkAPI) => {
     try {
       const response = await axios({
-        method: "put", url: `${backendURL}/api/User/Update/:${localStorage.getItem("token")}`, headers: { 'Content-Type': 'application/json' },
+        method: "put", url: `${backendURL}/api/User/Update/:${info._id}`, headers: { 'Content-Type': 'application/json' },
         data: formData
       })
       if (response?.data) { return response.data }
@@ -82,12 +103,39 @@ const UpdateUser = createAsyncThunk(
     }
   }
 )
+export const UpdateFiLE = createAsyncThunk(
+  'auth/UpdateFiLE',
+  async (
+    formData, thunkAPI) => {
+    try {
+      const response = await axios({
+        method: "put",
+        url: `${backendURL}/api/update_image_profile/${info._id}`,
+        headers: { 
+          'Content-Type': 'application/json',
+          'Content-Type': 'multipart/form-data'
+      },
+        data: formData 
+      })
+      if (response?.data) { return response.data }
+    } catch (error) {
+      // return custom error message from backend if present
+      if (error.response && error.response.data.message) {
+        return thunkAPI.rejectWithValue(error.response.data.message)
+      } else {
+        return thunkAPI.rejectWithValue(error.message)
+      }
+    }
+  }
+)
+
 const ChakEmail = createAsyncThunk(
   'auth/Check',
   async ({ email }, thunkAPI) => {
     try {
       const response = await axios({
-        method: "post", url: `${backendURL}/api/users/forgot_password`, headers: { 'Content-Type': 'application/json' },
+        method: "post", url: `${backendURL}/api/users/forgot_password`,
+        headers: { 'Content-Type': 'application/json' },
         data: JSON.stringify({ email })
       })
       if (response?.data) { return response.data }

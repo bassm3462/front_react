@@ -23,6 +23,7 @@ const DepartmentCreate = () => {
   const { isSuccess, isError, message,departments } = useSelector((state) => {
     return state.departments;
   });
+  
   const Navigate = useNavigate();
   useEffect(() => {
     dispatch(getDepartment());
@@ -65,7 +66,7 @@ const DepartmentCreate = () => {
     <>
       <ToastContainer />
       <TableContainer component={Paper}>
-        <Table sx={{ minWidth: 700 }} aria-label="customized table">
+        <Table sx={{ minWidth: 800 }} aria-label="customized table">
           <TableHead>
             <TableRow>
               <StyledTableCell>Emage</StyledTableCell>

@@ -34,8 +34,8 @@ export const Data={
     labels: ['January', 'February', 'March', 'April', 'May'],
     datasets: [
       {
-        label: '# of Votes',
-        data: [10, 35, 48, 69, 75],
+        label: 'Camera',
+        data: [0, 35, 48, 69, 75],
         borderColor: 'rgba(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132)',
         borderWidth : 3,
@@ -44,7 +44,8 @@ export const Data={
         tension:0.3,
         },
         {
-          data: [10, 15, 18, 29, 95],
+          label: 'Network Devices	',
+          data: [0, 15, 18, 29, 95],
           borderColor: '#f59e0b',
           backgroundColor: '#f59e0b',
           borderWidth : 3,
@@ -52,16 +53,36 @@ export const Data={
           pointBorderColor:'#ddd',
           tension:0.3,
           },
+          {
+          label: 'Tablets	',
+            data: [0, 100, 30, 40, 95],
+            borderColor: '#499e0b',
+            backgroundColor: '#f53e0b',
+            borderWidth : 3,
+            pointBackgroundColor:'#fff',
+            pointBorderColor:'#ddd',
+            tension:0.3,
+            },
+            {
+            label: 'Fire alarm	',
+            data: [0, 1, 45, 100, 95],
+            borderColor: '#753',
+            backgroundColor: '#f53e0b',
+            borderWidth : 3,
+            pointBackgroundColor:'#fff',
+            pointBorderColor:'#ddd',
+            tension:0.3,
+            },
         ],
 }
 export const DataPie={
-    labels: ['January', 'February', 'March', 'April', 'May'],
+    labels: ["camera ","tablets","fir alarm","network devices"],
     datasets: [
         {
           label: '# of Votes',
-          data: [10, 35, 48, 69, 75],
+          data: [10, 35, 48, 69],
           borderColor: 'rgba(255, 99, 132)',
-          backgroundColor:["#0d69d5","#0075ff","#f59e0b","#22c55e","#f44336"],
+          backgroundColor:["#0d69d5","#22c55e","#fe3","#f44336"],
           borderWidth : 3,
           pointBackgroundColor:'#fff',
           pointBorderColor:'#ddd',

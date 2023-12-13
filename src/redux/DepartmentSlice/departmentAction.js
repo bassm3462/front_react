@@ -1,6 +1,6 @@
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
-import { backendURL,token } from "../api/axios"
+import { backendURL } from "../api/axios"
 export const getDepartment = createAsyncThunk("Department/show", async (thunkAPI) => {
   try {
     const response = await axios.get(`${backendURL}/api/Department/show`);

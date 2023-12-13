@@ -12,12 +12,12 @@ export const contact = [
     Icon: <Home />,
   },
   {
-    name: "Mange Department",
+    name: "Manage Department",
     Link: "/admin/create",
     Icon: <AddBox />,
   },
   {
-    name: "Mange Employ",
+    name: "Manage Employ",
     Link: "/admin/Employ",
     Icon: <PersonAdd />,
   },
@@ -33,11 +33,7 @@ export const contact = [
   },
 ];
 export const contact2 = [
-  {
-    name: "Surveillance camera ",
-    Link: "/admin/Camera/",
-    Icon:<img src="/image/webcam_6084178.png" width={"40px"} style={{marginLeft:"-1px" }}></img>
-  },
+ 
   {
     name: "Notifications ",
     Link: "/Admin/Dashboard",

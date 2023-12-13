@@ -1,14 +1,16 @@
 import { createSlice,  } from "@reduxjs/toolkit";
-import { registerUser, loginUser, UpdateUser,ChakEmail } from "./authActions"
+import { toast } from "react-toastify";
+import { registerUser, loginUser, UpdateUser,ChakEmail, gitSingleUser,UpdateFiLE } from "./authActions"
 export const userSlice = createSlice({
   name: "user",
   initialState: {
     loading: false,
-    user: null,
+    data: [],
     Rol:null,
     code:false,
     isFetching: false,
     isSuccess: false,
+    isSuccessMessage:false,
     isError: false,
     message: "",
   },
@@ -20,7 +22,9 @@ export const userSlice = createSlice({
     UpdateUser: (state, action) => {
 
     },
-    DeleteUser: (state, action) => {
+    editUploadFile: (state, action) => {
+    
+      toast.success(action.payload.message)
 
     },
     logout: (state, action) => {
@@ -36,7 +40,7 @@ export const userSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(registerUser.pending, (state) => {
+      .addCase(registerUser.pending, (state) => {//state for register user
         state.loading = true
         state.isError = null
       })
@@ -50,7 +54,7 @@ export const userSlice = createSlice({
         state.isError = action.payload
         state.message = action.payload
       })
-      .addCase(loginUser.pending, (state) => {
+      .addCase(loginUser.pending, (state) => {//state for login user
         state.loading = true
         state.isError = null
       })
@@ -67,7 +71,7 @@ export const userSlice = createSlice({
         state.loading = false
         state.isError = action.payload
       })
-      .addCase(UpdateUser.pending, (state) => {
+      .addCase(UpdateUser.pending, (state) => {// update information user
         state.loading = true
         state.isError = null
       })
@@ -96,6 +100,37 @@ export const userSlice = createSlice({
         state.isSuccess=false
         state.isError = true
         state.message =payload
+      })
+      builder
+      .addCase(gitSingleUser.pending, (state) => {//state for register user
+        state.loading = true
+        state.isError = null
+      })
+      .addCase(gitSingleUser.fulfilled, (state, {payload}) => {
+        state.loading = false
+        state.isSuccess = true 
+        state.data = payload.singleUser
+      })
+      .addCase(gitSingleUser.rejected, (state, action) => {//git users state
+        state.loading = false
+        state.isError = action.payload
+        state.message = action.payload
+      })
+      builder
+      .addCase(UpdateFiLE.pending, (state) => {//state for update file user
+        state.loading = true
+        state.isError = null
+      })
+     .addCase(UpdateFiLE.fulfilled, (state, {payload}) => {
+        state.loading = false
+        state.isSuccessMessage = true 
+        state.message = payload.message
+      })
+      .addCase(UpdateFiLE.rejected, (state, {payload}) => {
+        state.loading = false
+        state.isError = true
+        state.isSuccessMessage=false
+        state.message = payload
       })
   }
 }

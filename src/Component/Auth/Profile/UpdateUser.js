@@ -1,29 +1,33 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import { NavLink } from 'react-router-dom';
 import { useEffect, useState } from "react";
-import { UpdateUser } from "../../../redux/userSlice/authActions"
-import { useDispatch } from "react-redux";
+import { UpdateUser, UpdateFiLE,gitSingleUser } from "../../../redux/userSlice/authActions"
+import { useDispatch,useSelector } from "react-redux";
 import { backendURL } from "../../../redux/api/axios";
+import { ToastContainer, toast } from "react-toastify";
 export default function Update() {
   const dispatch = useDispatch();
-  const info = JSON.parse(localStorage.getItem("user"))
+  const { isSuccessMessage, isError, message,data } = useSelector((state) => {
+    return state.user;
+  });
   const [name, setName] = useState(""),
     [email, setEmail] = useState(""),
     [password, setPassword] = useState(""),
     [repeat_password, setRepatPassword] = useState(""),
     [Phone, setPhone] = useState(""),
-    [image,SetImage]=useState([]),
-    [imageEdit,setImageEdit]=useState("");
+    [image, SetImage] = useState([]),
+    [imageEdit, setImageEdit] = useState("");
   useEffect(() => {
-    if (info) {
-      setName(info?.name);
-      setEmail(info?.email);
-      setPhone(info?.Phone)
-      setPassword(info?.password)
-      setRepatPassword(info?.password)
-      setImageEdit(info.image)
+    if (data) {
+      setName(data?.name);
+      setEmail(data?.email);
+      setPhone(data?.Phone)
+      setPassword("")
+      setRepatPassword("")
+      setImageEdit(data.image)
     }
   }, [])
+  // update information user only without image 
   const handleSubmit = (e) => {
     e.preventDefault();
     const formDate = new FormData()
@@ -34,17 +38,34 @@ export default function Update() {
     formDate.append("password", password)
     dispatch(UpdateUser(formDate))
   }
-  const handleSubmitFile = (e) => {
+  console.log(message);
+  // upload image profile update image only
+    const handleSubmitFile = (e) => {
     e.preventDefault();
     const formData = new FormData();
     formData.append("imageEdit", imageEdit);
     formData.append("image", image);
-    // dispatch(UpdateFiLE({ formData }));
-    console.log(formData);
-  };
+    dispatch(UpdateFiLE(formData));
   
+  };
+  useEffect(()=>{
+    dispatch(gitSingleUser())
+  },[dispatch, image,imageEdit])
+  if(isSuccessMessage){
+  toast.success(`${message}`, {
+    position: "bottom-right",
+    autoClose: 2000,
+    closeOnClick: true,
+
+  })
+}
+if(isError){
+  console.log("errorooro");
+  toast.error(`${message}`)
+}
   return (
     <>
+    <ToastContainer/>
       <div className="container bootstrap snippets bootdey">
         <h1 className="text-primary">Edit Profile</h1>
         <hr />
@@ -53,12 +74,12 @@ export default function Update() {
           <div className="col-md-3">
             <div className="text-center">
               <img
-                src={`${backendURL}/${info.image}`}
+                src={`${backendURL}/${data.image}`}
                 className="avatar img-circle img-thumbnail"
                 alt="avatar"
               />
               <form onSubmit={(e) => handleSubmitFile(e)}>
-                <h6>Upload a different photo...</h6>
+                <h6>Upload a photo...</h6>
                 <input
                   type="file"
                   className="form-control"
@@ -75,7 +96,9 @@ export default function Update() {
                 ></input>
               </form>
             </div>
-            <button className='btn btn-dark mt-1'>save image</button>
+            <button className='btn btn-dark mt-1'
+            onClick={(e)=>handleSubmitFile(e)}
+            >save image</button>
           </div>
           {/* edit form column */}
           <div className="col-md-9 personal-info">

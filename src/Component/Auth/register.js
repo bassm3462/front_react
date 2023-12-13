@@ -8,6 +8,7 @@ import { useEffect } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import { Link } from "react-router-dom";
 import { Female } from "@mui/icons-material";
+import { ColorButton } from "../Config/Content";
 function Register() {
   const { isSuccess, isError, message } = useSelector((state) => state.user);
   const [name, setName]         = useState("");
@@ -37,7 +38,7 @@ function Register() {
   }, []);
   return (
     <>
-      <section className="vh-100" style={{ backgroundColor: "#eee" }}>
+      <section className="vh-100 gradient-custom">
         <ToastContainer />
         <div className="container h-100">
           <div className="row d-flex justify-content-center align-items-center h-100">
@@ -55,6 +56,12 @@ function Register() {
                       >
                         <div className="d-flex flex-row align-items-center mb-1">
                           <div className="form-outline flex-fill mb-0">
+                          <label
+                              className="form-label"
+                              htmlFor="form3Example1c"
+                            >
+                              Your Name:
+                            </label>
                             <input
                               type="text"
                               name="name"
@@ -64,16 +71,17 @@ function Register() {
                               onChange={(e) => setName(e.target.value)}
                               placeholder="your name"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example1c"
-                            >
-                              Your Name
-                            </label>
+                           
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-1">
                           <div className="form-outline flex-fill mb-0">
+                          <label
+                              className="form-label"
+                              htmlFor="form3Example3c"
+                            >
+                              Your Email:
+                            </label>
                             <input
                               type="email"
                               name="email"
@@ -83,16 +91,17 @@ function Register() {
                               onChange={(e) => setEmail(e.target.value)}
                               placeholder="your email"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example3c"
-                            >
-                              Your Email
-                            </label>
+                           
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-1">
                           <div className="form-outline flex-fill mb-0">
+                             <label
+                              className="form-label"
+                              htmlFor="form3Example4c"
+                            >
+                              Password:
+                            </label>
                             <input
                               type="password"
                               name="password"
@@ -102,16 +111,17 @@ function Register() {
                               onChange={(e) => setPassword(e.target.value)}
                               placeholder="your password"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example4c"
-                            >
-                              Password
-                            </label>
+                           
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-1">
                           <div className="form-outline flex-fill mb-0">
+                          <label
+                              className="form-label"
+                              htmlFor="form3Example4cd"
+                            >
+                              Repeat your password:
+                            </label>
                             <input
                               type="password"
                               id="password"
@@ -121,16 +131,17 @@ function Register() {
                               onChange={(e) => setRepatPassword(e.target.value)}
                               placeholder="confirm password"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example4cd"
-                            >
-                              Repeat your password
-                            </label>
+                          
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-1">
                           <div className="form-outline flex-fill mb-0">
+                          <label
+                              className="form-label"
+                              htmlFor="form3Example4cd"
+                            >
+                              Phone:
+                            </label>
                             <input
                               type="text"
                               id="text"
@@ -140,16 +151,17 @@ function Register() {
                               onChange={(e) => setPhone(e.target.value)}
                               placeholder="Phone number"
                             />
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example4cd"
-                            >
-                              Phone
-                            </label>
+                           
                           </div>
                         </div>
                         <div className="d-flex flex-row align-items-center mb-1">
                           <div className="form-outline flex-fill mb-0">
+                          <label
+                              className="form-label"
+                              htmlFor="form3Example4cd"
+                            >
+                              Gender:
+                            </label>
                             <select
                               class="form-select"
                               aria-label="Default select example"
@@ -160,12 +172,7 @@ function Register() {
                               <option value={"Male"}>Male</option>
                               <option value={"Female"}>Female</option>
                             </select>
-                            <label
-                              className="form-label"
-                              htmlFor="form3Example4cd"
-                            >
-                              Gender
-                            </label>
+                           
                           </div>
                         </div>
                         <div className="form-check d-flex justify-content-center mb-1">
@@ -174,21 +181,22 @@ function Register() {
                             Login
                           </Link>
                         </div>
-                        <div className="d-flex justify-content-center mx-4 mb-2 mb-lg-2">
-                          <button
+                        <div className="mb-4">
+                          <ColorButton
                             type="submit"
-                            className="btn btn-primary btn-lg"
-                            onSubmit={(e) => handleSubmit(e)}
+                            style={{maxWidth:"100%", margin: 'auto',width:"100%", height:"auto"}}
+                            onClick={(e) => handleSubmit(e)}
                           >
-                            Register
-                          </button>
+                            login
+                          </ColorButton>
                         </div>
                       </form>
                     </div>
                     <div className="col-md-10 col-lg-6 col-xl-7 d-flex align-items-center order-1 order-lg-2">
                       <img
-                        src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-registration/draw1.webp"
-                        className="img-fluid"
+                        src="/image/image.png"
+                        // className="img-fluid"
+                        style={{margin:"auto",maxWidth:"80%"}}
                         alt="Sample image"
                       />
                     </div>
