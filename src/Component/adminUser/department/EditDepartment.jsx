@@ -56,9 +56,14 @@ export default function EditDepartment() {
   useEffect(() => {
     if (isSuccess) {
       toast.success(message);
+      setTimeout(()=>{
+        // window.location.reload("");
+        // window.history.back(-1);
+        
+      },2000)
+      
     }
-    console.log(message);
-  }, [message]);
+  }, [message,dispatch]);
   return (
     <>
       <div className="container bootstrap snippets bootdey">
@@ -83,7 +88,7 @@ export default function EditDepartment() {
                 />
               )}
               <form onSubmit={(e) => handleSubmitFile(e)}>
-                <h6>Upload a different photo...</h6>
+                <h6>Upload photo...</h6>
                 <input
                   type="file"
                   className="form-control"

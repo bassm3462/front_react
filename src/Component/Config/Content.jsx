@@ -22,12 +22,12 @@ export const contact = [
     Icon: <PersonAdd />,
   },
   {
-    name: "Menage Order",
+    name: "Manage Order",
     Link: "/admin/Order",
     Icon: <GradingTwoTone />,
   },
   {
-    name: "Menage Product",
+    name: "Manage Product",
     Link: "/admin/Product",
     Icon: <FontAwesomeIcon icon={faListCheck} size="lg" />,
   },
@@ -126,3 +126,35 @@ export const ButtonSave = styled(Button)(({ theme }) => ({
     backgroundColor: grey[900],
   },
 }));
+export const boxInformationOrder =[
+  {
+    Name :"Name of Camera ",
+    Department:"Camera",
+    quantity:"100",
+    PriceUnit:"$20",
+    TotalPrice:"$2000",
+  },
+  {
+    Name :"Name of tablets ",
+    Department:"tablets",
+    quantity:"150",
+    PriceUnit:"$20",
+    TotalPrice:"$300"
+
+  },
+  {
+    Name :"Name of Camera ",
+    Department:"Camera",
+    quantity:"100",
+    PriceUnit:"$20",
+    TotalPrice:"$2000",
+  },
+  {
+    Name :"Name of tablets ",
+    Department:"tablets",
+    quantity:"150",
+    PriceUnit:"$20",
+    TotalPrice:"$300"
+
+  }
+]

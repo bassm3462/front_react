@@ -1,16 +1,18 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEnvelope, faMapMarkerAlt } from "@fortawesome/free-solid-svg-icons";
+import { faContactBook, faEnvelope, faMailBulk, faMapMarkerAlt, faTicketAlt } from "@fortawesome/free-solid-svg-icons";
 import "../style/ResatPassword.css";
 import {
+  faFacebook,
   faFacebookF,
   faInstagram,
   faLinkedinIn,
+  faTiktok,
 } from "@fortawesome/free-brands-svg-icons";
 import { override } from "../../Costumer/style/style";
 import { GridLoader } from "react-spinners";
 import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
-import {gitSingleUser}from "../../../redux/userSlice/authActions"
+import { gitSingleUser } from "../../../redux/userSlice/authActions"
 import {
   MDBContainer,
   MDBRow,
@@ -18,12 +20,14 @@ import {
 } from "mdb-react-ui-kit";
 import { backendURL } from "../../../redux/api/axios";
 import "../style/userInformation.css";
-import { useDispatch,useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { IconButton } from "@mui/material";
+import { Facebook, FacebookOutlined } from "@mui/icons-material";
 export default function PersonalProfile(props) {
   const { data } = useSelector((state) => {
     return state.user;
   });
-  const dispatch=useDispatch()
+  const dispatch = useDispatch()
   const [loading, setLoading] = useState(false);
   useEffect(() => {
     setLoading(true);
@@ -32,13 +36,13 @@ export default function PersonalProfile(props) {
     }, 1000);
   }, []);
   const Navigateto = useNavigate();
-  const ClickToEditInfo=()=>{
+  const ClickToEditInfo = () => {
     Navigateto("/Information/Edit");
   }
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(gitSingleUser())
-  },[dispatch])
- console.log(data.name);
+  }, [dispatch])
+  console.log(data.name);
   return (
     <div>
       {loading ? (
@@ -50,11 +54,10 @@ export default function PersonalProfile(props) {
         />
       ) : (
         <section style={{ backgroundColor: "#f4f5f7" }}>
-         
           <MDBContainer className=" h-100">
             <MDBRow
               className="justify-content-center align-items-center mb-4 container "
-              style={{ backgroundColor: "white", maxWidth: "100%", borderRadius: "25px"  }}
+              style={{ backgroundColor: "white", maxWidth: "100%", borderRadius: "25px" }}
             >
               <div className="mb-3 " style={{ borderRadius: ".5rem" }}>
                 <div className="headerProfile pb-4">
@@ -66,7 +69,7 @@ export default function PersonalProfile(props) {
                     />
                     <div className="m-4">
                       <p>
-                        <span style={{ color: "#b82ce9", fontWeight: "700" }}>GENERAL COMPANY</span> <br />
+                        <span style={{ color: "#b82ce9", fontWeight: "700" }}> THE GENERAL COMPANY</span> <br />
                         <span style={{ color: "#000066" }}>FOR ELECTRONIC SYSTEMS</span>
                       </p>
                     </div>
@@ -83,7 +86,7 @@ export default function PersonalProfile(props) {
                       <img
                         src={`${backendURL}/${data.image}`}
                         alt="User Avatar"
-                        className="avaterImgeCenterProfole mb-4"
+                        className="avaterImgeCenterProfole mb-l-4"
                       />
                       <Link href="https://urproducts.iq/" target="_blank">
                         <img
@@ -91,30 +94,29 @@ export default function PersonalProfile(props) {
                           alt=""
                           width={"150px"}
                           loading="lazy"
-                        className="hoverImageUR "
+                          className="hoverImageUR "
                         />
                       </Link>{" "}
                     </div>
                   </MDBCard>
                   <div>
                     <div className="mediaCenterColum">
-                      <div className="icontColumCenter ">
-                        <a href="#!" className="m-3">
-                          {" "}
-                          <FontAwesomeIcon icon={faFacebookF} size="lg" />
-                        </a>
-                        <a href="#!" className="m-3">
-                          <FontAwesomeIcon icon={faLinkedinIn} size="lg" />
-                        </a>
-                        <a href="#!" className="m-3">
-                          <FontAwesomeIcon icon={faInstagram} size="lg" />
-                        </a>
-                        <a href="#!" className="m-3">
-                          <FontAwesomeIcon icon={faEnvelope} size="lg" />
-                        </a>
-                        <a href="#!" className="m-3">
-                          <FontAwesomeIcon icon={faMapMarkerAlt} size="lg" />
-                        </a>
+                      <div className="icontColumCenter mt-4 ">
+                        <IconButton color="primary" aria-label="add an alarm">
+                        <FontAwesomeIcon icon={faFacebook} size="lg" />
+                        </IconButton>
+                        <IconButton color="primary" aria-label="add an alarm">
+                        <FontAwesomeIcon icon={faInstagram} size="lg" />
+                        </IconButton>
+                        <IconButton color="primary" aria-label="add an alarm">
+                        <FontAwesomeIcon icon={faLinkedinIn} size="lg" />
+                        </IconButton>
+                        <IconButton color="primary" aria-label="add an alarm">
+                        <FontAwesomeIcon icon={faMailBulk} size="lg" />
+                        </IconButton>
+                        <IconButton color="primary" aria-label="add an alarm">
+                        <FontAwesomeIcon icon={faTiktok} size="lg" />
+                        </IconButton>
                       </div>
                     </div>
                   </div>
@@ -132,8 +134,8 @@ export default function PersonalProfile(props) {
                         </p>
                         <p className="card-text mb-2">
                           phone: {
-                            data.Phone ? 
-                            <span>+964 {data.Phone}</span>  :
+                            data.Phone ?
+                              <span>+964 {data.Phone}</span> :
                               <span>+964 </span>
                           }
                         </p>
@@ -143,9 +145,9 @@ export default function PersonalProfile(props) {
                 </div>
                 <div className="textleftend ">
                   <button className="buttonEditUNfo btnn"
-                onClick={()=>ClickToEditInfo()}
+                    onClick={() => ClickToEditInfo()}
                   >
-                  Edit Information
+                    Edit Information
                   </button>
                 </div>
               </div>

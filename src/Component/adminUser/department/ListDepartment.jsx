@@ -69,11 +69,11 @@ const DepartmentCreate = () => {
         <Table sx={{ minWidth: 800 }} aria-label="customized table">
           <TableHead>
             <TableRow>
-              <StyledTableCell>Emage</StyledTableCell>
-              <StyledTableCell align="right">name</StyledTableCell>
-              <StyledTableCell align="right">description</StyledTableCell>
-              <StyledTableCell align="right">Category</StyledTableCell>
-              <StyledTableCell align="right">Action</StyledTableCell>
+              <StyledTableCell>Images</StyledTableCell>
+              <StyledTableCell align="right">Name Of Departments</StyledTableCell>
+              <StyledTableCell align="right">descriptions</StyledTableCell>
+              <StyledTableCell align="right">Categories</StyledTableCell>
+              <StyledTableCell align="right">Actions</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>

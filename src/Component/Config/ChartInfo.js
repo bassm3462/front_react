@@ -35,7 +35,7 @@ export const Data={
     datasets: [
       {
         label: 'Camera',
-        data: [0, 35, 48, 69, 75],
+        data: [0,10,30,50,40],
         borderColor: 'rgba(255, 99, 132)',
         backgroundColor: 'rgba(255, 99, 132)',
         borderWidth : 3,
@@ -55,7 +55,7 @@ export const Data={
           },
           {
           label: 'Tablets	',
-            data: [0, 100, 30, 40, 95],
+            data: [0, 50, 100, 70, 95],
             borderColor: '#499e0b',
             backgroundColor: '#f53e0b',
             borderWidth : 3,
@@ -65,7 +65,7 @@ export const Data={
             },
             {
             label: 'Fire alarm	',
-            data: [0, 1, 45, 100, 95],
+            data: [50, 100, 70, 30, 20],
             borderColor: '#753',
             backgroundColor: '#f53e0b',
             borderWidth : 3,

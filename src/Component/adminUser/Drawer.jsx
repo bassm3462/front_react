@@ -14,6 +14,7 @@ import {
   createTheme,
   Typography,
   Link,
+  IconButton,
 } from "@mui/material";
 import { contact, contact2 } from "../Config/Content";
 import { useNavigate } from "react-router-dom";
@@ -59,7 +60,6 @@ function ResponsiveDrawer(props) {
             width={"150px"}
             loading="lazy"
             className="hoverImageUR"
-
           />
         </Link>{" "}
       </Box>
@@ -73,7 +73,7 @@ function ResponsiveDrawer(props) {
                   Navigate(text.Link);
                 }}
               >
-                <ListItemIcon>{text.Icon}</ListItemIcon>
+                <IconButton color=""style={{color:"#9c27b0"}}>{text.Icon}</IconButton>
                 <ListItemText primary={text.name} />
               </ListItemButton>
             </ListItem>
@@ -89,7 +89,7 @@ function ResponsiveDrawer(props) {
                 Navigate(text.Link);
               }}
             >
-              <ListItemIcon>{text.Icon}</ListItemIcon>
+              <IconButton color=""style={{color:"#9c27b0"}}>{text.Icon}</IconButton>
               <ListItemText primary={text.name} />
             </ListItemButton>
           </ListItem>
@@ -99,9 +99,9 @@ function ResponsiveDrawer(props) {
       <List>
         <ListItem disablePadding>
           <ListItemButton onClick={logoutHandler}>
-            <ListItemIcon>
+            <IconButton color="" style={{color:"#9c27b0"}}>
               <Logout />
-            </ListItemIcon>
+            </IconButton>
             <ListItemText primary="Logout" />
           </ListItemButton>
         </ListItem>

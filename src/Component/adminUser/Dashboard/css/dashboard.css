@@ -1,11 +1,24 @@
 
 .boxDepartment{
-    width: 200px;
-    max-width: 200px;
-    height: 200px;
-    max-height: 200px;
+    width: 250px;
+    max-width: 250px;
+    height: 250px;
+    max-height: 250px;
     background-color: #455a64;
     color: white;
+}
+
+.boxDepartment .positiontoDisplay {
+  position: absolute;
+  height: 100%;
+  /* top:50px */
+
+
+}
+.boxDepartment .positiontoDisplay .divToDisplaystring{
+
+
+
 }
 .h1Dahboard {
   margin: 20px 20px 40px !important;

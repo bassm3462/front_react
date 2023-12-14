@@ -14,6 +14,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllOffers } from "../../../redux/Offers/OfferAction";
 import Module from "./Module";
 import { useEffect } from "react";
+import { backendURL } from "../../../redux/api/axios";
 const AddNewOffers = () => {
   const { isSuccess, message, setOffers } = useSelector((state) => {
     return state.Offers;
@@ -76,7 +77,7 @@ const AddNewOffers = () => {
                   <StyledTableRow key={_id}>
                     <StyledTableCell component="th" scope="row">
                       <img
-                        src={`http://127.0.0.1:4000/${image}`}
+                        src={`${backendURL}/${image}`}
                         alt=""
                         width="200px"
                       />

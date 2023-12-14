@@ -208,8 +208,9 @@ export default function ProductDetails() {
                             fontSize: "20px",
                           }}
                         >
+                          Price 
                           <span>${products?.price}</span>
-                          Checkout{" "}
+                        {" "}
                           <i className="fas fa-long-arrow-alt-right ms-2"></i>
                         </ColorLink>
                       </MDBCardBody>
