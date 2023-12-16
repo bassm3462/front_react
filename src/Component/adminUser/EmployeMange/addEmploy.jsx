@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import {Button,Modal,Form} from "react-bootstrap";
+import { Button, Modal, Form } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { EmployRegister } from "../../../redux/EmploySlice/EmployAction";
 import { useSelector } from "react-redux";
@@ -15,23 +15,27 @@ export default function AddEmploy() {
     [user_type, setUserType] = useState(""),
     [Gender, setGender] = useState(""),
     [Department, setDepartment] = useState(""),
+    [active,setActive]=          useState(""),
     [Phone, setPhone] = useState("");
+    const handleCheckboxChange = (e) => {
+        setActive(e.target.checked);
+    };
   const handleShow = () => setShow(true);
   const dispatch = useDispatch();
   const handleSubmit = (e) => {
     e.preventDefault();
+    const formData=new FormData();
+    formData.append("name", name);
+    formData.append("Phone", Phone);
+    formData.append("Gender", Gender);
+    formData.append("email", email);
+    formData.append("Department",Department);
+    formData.append("user_type", user_type);
+    formData.append("password",password)
+    formData.append("active", active?1:0);
     dispatch(
-      EmployRegister({
-        name,
-        email,
-        password,
-        Gender,
-        user_type,
-        Phone,
-        Department,
-      }),
-      setShow(false)
-    );
+      EmployRegister(formData));
+    setShow(false)
   };
   const handleClose = () => setShow(false);
   useEffect(() => {
@@ -172,6 +176,19 @@ export default function AddEmploy() {
                       );
                     })}
                 </select>
+              </div>
+              <div className="form-check ms-3">
+                <input
+                  className="form-check-input"
+                  type="checkbox"
+                  checked={active}
+                  onChange={handleCheckboxChange}
+                  id="flexCheckDefault"
+                  require
+                />
+                <label className="form-check-label" for="flexCheckDefault">
+                Code The Account
+                </label>
               </div>
             </Form>
             <Modal.Footer>

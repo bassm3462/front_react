@@ -3,7 +3,7 @@ import axios from "axios";
 import { backendURL } from "../api/axios";
  export const EmployRegister = createAsyncThunk(
   "Employ/register",
-  async ({ name, email, password, Gender, user_type, Phone,Department }, thunkAPI) => {
+  async (formData, thunkAPI) => {
     try {
       const response = await axios({
         method: "post",
@@ -12,7 +12,7 @@ import { backendURL } from "../api/axios";
           Accept: "application/json",
           "Content-Type": "application/json",
         },
-        data: JSON.stringify({ name, email, password, Gender, user_type, Phone,Department }),
+        data:formData,
       });
       if (response || response?.data) {
         return response.data;

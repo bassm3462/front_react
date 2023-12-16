@@ -43,7 +43,7 @@ export default function EmployList() {
       toast.error(message);
       dispatch(clearState());}
     if (isSuccess) {
-      // toast.success(message)
+      toast.success(message)
       dispatch(clearState()); }
   }, [isSuccess, isError,message]);
   useEffect(() => {
