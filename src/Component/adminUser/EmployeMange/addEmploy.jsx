@@ -187,7 +187,7 @@ export default function AddEmploy() {
                   require
                 />
                 <label className="form-check-label" for="flexCheckDefault">
-                Code The Account
+                Active The Account
                 </label>
               </div>
             </Form>
